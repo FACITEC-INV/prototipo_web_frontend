@@ -14,7 +14,7 @@ const Navbar = () => {
           <a href="https://conacyt.com.py" className="flex justify-between xl:items-center lg:items-center items-center">
             <Image src="/img/conacyt.png" width={450} height={30} className="xl:w-130 lg:w-105 sm:w-75 w-38" alt="conacyt" />
             <Image src="/img/prociencia.png" width={250} height={100} className="xl:w-70 lg:w-60 sm:w-45 w-25" alt="prociencia" />
-            <Image src="/img/feei.png" width={80} height={100} className="xl:w-22 lg:w-22 sm:w-13 w-10" alt="feei" />
+            <Image src="/img/feei.png" width={80} height={100} className="xl:w-22 lg:w-22 sm:w-12 w-10" alt="feei" />
           </a>
         </div>
         <div className="lg:px-6 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
