@@ -27,11 +27,11 @@ const Navbar = () => {
           <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
             <nav>
               <ul className="lg:flex items-end justify-between text-base text-gray-700 pt-4 lg:pt-0">
-                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/">Inicio</Link></li>
-                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/monitoreo">Monitoreo</Link></li>
-                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/api-docs">API</Link></li>
-                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/proyecto">Sobre el proyecto</Link></li>
-                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="/login">Login</Link></li>
+                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/">Inicio</Link></li>
+                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/monitoreo">Monitoreo</Link></li>
+                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/api-docs">API</Link></li>
+                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/proyecto">Sobre el proyecto</Link></li>
+                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 lg:mb-0 mb-2" href="/login">Login</Link></li>
               </ul>
             </nav>
           </div>
