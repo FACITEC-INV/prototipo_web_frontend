@@ -1,8 +1,13 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import "./styles/navbar.css"
+import { useStore } from "@nanostores/react";
+import { $isAuthenticated } from "@/stores/auth/status";
 
 const Navbar = () => {
+  const isAuthenticated = useStore($isAuthenticated);
+
   return (
     <div>
       <header>
@@ -12,12 +17,12 @@ const Navbar = () => {
             <Image src="/img/facitec.png" width={130} height={100} className="xl:w-32 lg:w-29 sm:w-22 w-12" alt="facitec" />
           </a>
           <a href="https://conacyt.com.py" className="flex justify-between xl:items-center lg:items-center items-center">
-            <Image src="/img/conacyt.png" width={450} height={30} className="xl:w-130 lg:w-105 sm:w-75 w-38" alt="conacyt" />
+            <Image priority={true} src="/img/conacyt.png" width={450} height={30} className="xl:w-130 lg:w-105 sm:w-75 w-38" alt="conacyt" />
             <Image src="/img/prociencia.png" width={250} height={100} className="xl:w-70 lg:w-60 sm:w-45 w-25" alt="prociencia" />
             <Image src="/img/feei.png" width={80} height={100} className="xl:w-22 lg:w-22 sm:w-12 w-10" alt="feei" />
           </a>
         </div>
-        <div className="lg:px-6 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
+        <div className="lg:px-25 px-8 bg-white flex flex-wrap items-center lg:py-0 py-2">
 
           <label htmlFor="menu-toggle" className="pointer-cursor lg:hidden block">
             <svg className="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
@@ -31,7 +36,16 @@ const Navbar = () => {
                 <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/monitoreo">Monitoreo</Link></li>
                 <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/api-docs">API</Link></li>
                 <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/proyecto">Sobre el proyecto</Link></li>
-                <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 lg:mb-0 mb-2" href="/login">Login</Link></li>
+
+                {
+                  isAuthenticated && (
+                    <span className="lg:flex items-end justify-between text-base text-gray-700 pt-4 lg:pt-0">
+                      <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 text-emerald-400" href="/dispositivos">Dispositivos</Link></li>
+                      <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 text-emerald-400" href="/users">Usuario</Link></li>
+                    </span>
+                  )
+                }
+
               </ul>
             </nav>
           </div>

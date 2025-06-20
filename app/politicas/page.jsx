@@ -15,8 +15,8 @@ const Politicas = () => {
         El responsable del tratamiento de los datos personales recopilados a través de este sitio web es:
         <br />
         La <strong>Dirección de Investigación y Extensión</strong> de la Facultad de Ciencias y Tecnología de la Universidad Nacional de Canindeyú<br />
-        Correo de contacto: <a href="mailto:dir.invext@facitec.edu.py" className="text-blue-600">dir.invext@facitec.edu.py</a><br />
-        Ubicación: <a href="https://maps.app.goo.gl/QiVLn1knSPgD9rHL8" target="_blank">Saltos del Guairá, Paraguay.</a>
+        Correo de contacto: <a href="mailto:dir.invext@facitec.edu.py" className="text-sky-600 hover:text-sky-400">dir.invext@facitec.edu.py</a><br />
+        Ubicación: <a href="https://maps.app.goo.gl/QiVLn1knSPgD9rHL8" className="text-sky-600 hover:text-sky-400" target="_blank">Saltos del Guairá, Paraguay.</a>
       </p>
       <p className="mb-4">
         Esta aplicación fue desarrollada en el marco del proyecto de investigación <strong>"Sistema de red de sensores inalámbricos para el monitoreo de la calidad del agua en cauces hídricos del departamento de Canindeyú"</strong> financiado por el Consejo Nacional de Ciencia y Tecnología (CONACYT) de Paraguay.
@@ -63,7 +63,7 @@ const Politicas = () => {
 
       <h2 className="text-xl font-semibold mt-6 mb-2">7. Derechos del usuario</h2>
       <p className="mb-4">
-        Usted tiene derecho a acceder, rectificar o eliminar sus datos personales, así como a retirar su consentimiento. Para ejercer estos derechos, escríbanos a <a href="mailto:dir.invext@facitec.edu.py" className="text-blue-600">dir.invext@facitec.edu.py</a>.
+        Usted tiene derecho a acceder, rectificar o eliminar sus datos personales, así como a retirar su consentimiento. Para ejercer estos derechos, escríbanos a <a href="mailto:dir.invext@facitec.edu.py" className="text-sky-600 hover:text-sky-400">dir.invext@facitec.edu.py</a>.
       </p>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">8. Seguridad de los datos</h2>
