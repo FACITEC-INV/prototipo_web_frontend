@@ -22,27 +22,29 @@ export const login = async (username, password) => {
       body: JSON.stringify({ username, password }),
     });
 
-    if (!res.ok)
-      throw new Error("Error al iniciar sesión");
-
     const data = await res.json();
 
-    if (!data || !data.success)
-      throw new Error("Token no recibido o inválido");
+    if (!res.ok || !data.success) {
+      const msg = res.status === 401
+        ? "Error! Datos incorrectos. Por favor, verifique sus credenciales"
+        : 'Ocurrió un error al intentar iniciar sesión';
+      console.error(`[action-login] [${res.status}]`, data.response);
+      throw new Error(msg);
+    }
 
     setAuthToken(data.response);
     setUserStatus($authToken.get());
   } catch (error) {
-    console.error(`${error.message}`, error);
-    throw new Error("Error al iniciar sesión. Por favor, verifique sus credenciales");
+    console.error(`[action-login] ${error.message}`);
+    console.error(error);
+    throw new Error(error.message);
   }
-
 }
 
 /**
  * Maneja el cierre de sesión del usuario.
  */
-export const logout = async () => {
+export const handleLogout = async () => {
   clearAuthToken();
 };
 

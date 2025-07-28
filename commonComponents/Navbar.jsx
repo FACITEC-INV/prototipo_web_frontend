@@ -3,10 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import "./styles/navbar.css"
 import { useStore } from "@nanostores/react";
-import { $isAuthenticated } from "@/stores/auth/status";
+import { $isAdmin, $isAuthenticated } from "@/stores/auth/status";
+import { useEffect, useState } from "react";
+import { handleLogout } from "@/stores/auth/actions";
 
 const Navbar = () => {
   const isAuthenticated = useStore($isAuthenticated);
+  const isAdmin = useStore($isAdmin);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <div>
@@ -30,7 +38,7 @@ const Navbar = () => {
           <input className="hidden" type="checkbox" id="menu-toggle" />
 
           <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
-            <nav>
+            <nav className="flex">
               <ul className="lg:flex items-end justify-between text-base text-gray-700 pt-4 lg:pt-0">
                 <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/">Inicio</Link></li>
                 <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/monitoreo">Monitoreo</Link></li>
@@ -38,15 +46,29 @@ const Navbar = () => {
                 <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400" href="/proyecto">Sobre el proyecto</Link></li>
 
                 {
-                  isAuthenticated && (
-                    <span className="lg:flex items-end justify-between text-base text-gray-700 pt-4 lg:pt-0">
+                  isClient && isAuthenticated && (
+                    <>
                       <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 text-emerald-400" href="/dispositivos">Dispositivos</Link></li>
-                      <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 text-emerald-400" href="/users">Usuario</Link></li>
-                    </span>
+                      {isAdmin && (
+                        <li><Link className="lg:p-3 py-2 px-0 block border-b-2 border-transparent hover:border-sky-400 text-emerald-400" href="/users">Usuario</Link></li>
+                      )}
+                    </>
                   )
                 }
 
               </ul>
+              {
+                isClient && isAuthenticated && (
+                  <div className="mr-none flex items-center lg:ml-[200px] xl:ml-[500px]">
+                    <button
+                      onClick={handleLogout}
+                      className="btn btn-sm btn-soft btn-warning"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )
+              }
             </nav>
           </div>
         </div>

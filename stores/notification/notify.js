@@ -10,6 +10,7 @@ const getId = () => `notify-${count++}`;
 
 /**
  * Función para mostrar una notificación.
+ * types: info, success, warning, error
  * @param {string} message - El mensaje de la notificación.
  * @param {string} type - El tipo de notificación (info, success, warning, error).
  * @param {number} duration - Duración en milisegundos antes de que la notificación se cierre automáticamente.
