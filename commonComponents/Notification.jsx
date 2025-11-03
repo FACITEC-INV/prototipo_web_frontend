@@ -3,10 +3,18 @@ import { useStore } from "@nanostores/react";
 import { $notifcations } from "@/stores/notification/notify";
 
 import "./styles/notify.css"
+import { useEffect, useState } from "react";
 
 const Notification = () => {
 
   const notifications = useStore($notifcations);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, [])
+
+  if (!isMounted) return null;
 
   return (
     <div className="fixed top-4 right-4 z-50 flex flex-col gap-2">
