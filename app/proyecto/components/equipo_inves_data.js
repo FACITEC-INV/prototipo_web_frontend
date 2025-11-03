@@ -1,4 +1,4 @@
-{
+export default {
   "equipo": [
     {
       "name": "Dr. Daniel Romero",
@@ -71,4 +71,4 @@
       "image": "nelson.jpg"
     }
   ]
-}
+};

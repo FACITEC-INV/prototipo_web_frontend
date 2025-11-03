@@ -1,5 +1,7 @@
-import { equipo, admin } from "@/app/proyecto/components/equipo_inves_data.json";
+import data from "@/app/proyecto/components/equipo_inves_data";
 import Image from "next/image";
+
+const { equipo, admin } = data;
 
 const Equipo = () => {
   return (
