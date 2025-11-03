@@ -12,10 +12,8 @@ const Dispositivos = () => {
   const isAuthenticated = useStore($isAuthenticated);
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      return;
-    }
-    $reloadTableData.set(true);
+    if (!isAuthenticated) return;
+    if (isAuthenticated) $reloadTableData.set(true);
   }, [isAuthenticated]);
 
   return (
