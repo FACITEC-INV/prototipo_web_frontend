@@ -3,8 +3,18 @@
 import AuthGuard from "@/commonComponents/AuthGuard";
 import Form from "./components/Form";
 import Table from "./components/Table";
+import { useEffect } from "react";
+import { useStore } from "@nanostores/react";
+import { $isAuthenticated } from "@/stores/auth/status";
+import { $reloadTableData } from "@/stores/users/tableStatus";
 
 const Users = () => {
+  const isAuthenticated = useStore($isAuthenticated);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    if (isAuthenticated) $reloadTableData.set(true);
+  }, [isAuthenticated]);
 
   return (
     <AuthGuard>
