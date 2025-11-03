@@ -1,0 +1,23 @@
+# Archivos de entorno local (¡nunca los subas a la imagen!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependencias (se instalan dentro del contenedor)
+node_modules/
+
+# Build output (se genera dentro del contenedor)
+.next/
+
+# Archivos de logs
+*.log
+
+# Archivos de Git
+.git
+.gitignore
+
+# Archivos de Docker
+Dockerfile
+.dockerignore
