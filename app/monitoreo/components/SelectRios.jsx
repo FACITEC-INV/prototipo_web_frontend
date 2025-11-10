@@ -19,24 +19,26 @@ const SelectRios = () => {
 
   return (
     <div>
-      <select
-        id="select-rios"
-        className="select select-sm mr-1"
-        disabled={dispositivos.length === 0}
-        onChange={handleRiosSelectChange}
-      >
-        <option value="0">Seleccione un río</option>
-        {dispositivos.map((d, i) => (
-          <option key={'rios-option-' + i} value={`${d.ubicacion}`.replaceAll(' ', '')}>{d.rio}</option>
-        ))}
-      </select>
-      <button
-        className="btn btn-sm"
-        disabled={dispositivos.length === 0}
-        onClick={handleAddRiosToSelectedList}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-square-rounded-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /><path d="M15 12h-6" /><path d="M12 9v6" /></svg>
-      </button>
+      <div className="flex items-center">
+        <select
+          id="select-rios"
+          className="select select-sm mr-1"
+          disabled={dispositivos.length === 0}
+          onChange={handleRiosSelectChange}
+        >
+          <option value="0">Seleccione un río</option>
+          {dispositivos.map((d, i) => (
+            <option key={'rios-option-' + i} value={`${d.ubicacion}`.replaceAll(' ', '')}>{d.rio}</option>
+          ))}
+        </select>
+        <button
+          className="btn btn-sm btn-soft btn-accent"
+          disabled={dispositivos.length === 0}
+          onClick={handleAddRiosToSelectedList}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-square-rounded-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /><path d="M15 12h-6" /><path d="M12 9v6" /></svg>
+        </button>
+      </div>
       {selectedRiosList.length > 0 && (
         <div className="mt-1">
           {selectedRiosList.map((r, i) => (

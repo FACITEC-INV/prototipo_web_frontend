@@ -7,7 +7,7 @@ import { useStore } from "@nanostores/react"
 const SelectParametros = () => {
   const params = useStore($paramsStatus);
   return (
-    <div className="card w-96 bg-base-100 card-xs shadow-sm">
+    <div className="card bg-base-100 card-xs shadow-sm">
       <div className="card-body">
         <h2 className="card-title">Parámetros</h2>
         <div>

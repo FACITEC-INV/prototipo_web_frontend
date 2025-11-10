@@ -1,12 +1,9 @@
-import SelectParametros from "./components/SelectParametros";
-import SelectRios from "./components/SelectRios";
+import QueryDataForm from "./components/QueryDataForm";
 
 const Monitoreo = () => {
   return (
-    <div>
-      <h1 className="text-center">Monitoreo</h1>
-      <SelectRios />
-      <SelectParametros />
+    <div className="max-w-[98%] mx-auto py-2 flex justify-center gap-2">
+      <QueryDataForm />
     </div>
   )
 }
