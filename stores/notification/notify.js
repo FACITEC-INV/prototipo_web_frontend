@@ -15,7 +15,7 @@ const getId = () => `notify-${count++}`;
  * @param {string} type - El tipo de notificación (info, success, warning, error).
  * @param {number} duration - Duración en milisegundos antes de que la notificación se cierre automáticamente.
  */
-export const notify = (message = '', type = 'info', duration = 5000) => {
+export const notify = (message = '', type = 'info', duration = 8000) => {
   const id = getId();
   const notification = {
     id,
