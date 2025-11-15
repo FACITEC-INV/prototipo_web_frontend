@@ -1,5 +1,6 @@
+import { task } from "nanostores";
 import { notify } from "../notification/notify";
-import { $dispositivosStatus, $rioSelected, $selectedRiosList } from "./status";
+import { $dispositivosStatus, $rioSelected, $selectedRiosList } from "./selectDispositivosStatus";
 
 /** Url de la api*/
 const URLBASE = process.env.NEXT_PUBLIC_API_BASE + '/dispositivos';

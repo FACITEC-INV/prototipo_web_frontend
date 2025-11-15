@@ -18,4 +18,15 @@ export const $selectedRiosList = atom([]);
  */
 export const $rioSelected = atom('');
 
+/** Error que se mostrará en el selectedRios */
+export const $errorSelectDispositivosStatus = atom("");
+
+/** Controla que el selectedRios no este vacío */
+effect([$selectedRiosList, $dispositivosStatus], (selectedRios, dispositivos) => {
+  $errorSelectDispositivosStatus.set("");
+  if (selectedRios.length <= 0 && dispositivos.length > 0) {
+    $errorSelectDispositivosStatus.set("Seleccione un río.");
+  }
+});
+
 
