@@ -38,6 +38,7 @@ const SelectRios = () => {
           ))}
         </select>
         <button
+          type="button"
           className="btn btn-sm btn-soft btn-accent"
           disabled={dispositivos.length === 0}
           onClick={handleAddRiosToSelectedList}
@@ -50,6 +51,7 @@ const SelectRios = () => {
         <div className="mt-1">
           {selectedRiosList.map((r, i) => (
             <button
+              type="button"
               key={'rio-selected-' + i}
               className="btn btn-xs btn-soft btn-info mr-1"
               onClick={() => handleRomoveRiosFromSelectedList(r.ubicacion)}

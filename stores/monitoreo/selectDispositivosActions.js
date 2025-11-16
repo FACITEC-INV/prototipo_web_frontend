@@ -2,8 +2,7 @@ import { task } from "nanostores";
 import { notify } from "../notification/notify";
 import { $dispositivosStatus, $rioSelected, $selectedRiosList } from "./selectDispositivosStatus";
 
-/** Url de la api*/
-const URLBASE = process.env.NEXT_PUBLIC_API_BASE + '/dispositivos';
+const URLBASE = `${process.env.NEXT_PUBLIC_API_BASE}/dispositivos`;
 
 /**
  * Recupera los dispositivos desde la API y los almacena en el estado.
