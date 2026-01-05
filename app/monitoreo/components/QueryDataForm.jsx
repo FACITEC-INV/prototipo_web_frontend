@@ -25,7 +25,7 @@ const QueryDataForm = () => {
   }, [selectedRios, initialQueryMade]);
 
   return (
-    <div className="w-[95%] md:w-[30%] mb-2 border border-gray-300 p-2 rounded shadow-lg">
+    <div className="w-full md:w-[35%] h-fit border border-gray-300 p-2 rounded shadow-lg">
       <h6 className="pb-1 text-center font-medium">Selección de parámetros</h6>
       <form
         className="flex flex-col gap-2"

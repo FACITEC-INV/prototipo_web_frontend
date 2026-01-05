@@ -28,7 +28,7 @@ export const handleQuerySubmit = async (e) => {
   }
 
   $isQueryLoading.set(true);
-  $monitoreoData.set(null);
+  $monitoreoData.set({});
   $queryError.set(null);
 
   try {
@@ -39,7 +39,7 @@ export const handleQuerySubmit = async (e) => {
       day: $dayStatus.get()
     };
 
-    const allResults = [];
+    const resultsByUbicacion = {};
 
     for (const ubicacion of riosSeleccionados) {
       const queryParams = new URLSearchParams({
@@ -58,13 +58,15 @@ export const handleQuerySubmit = async (e) => {
         throw new Error(data.message || `Error al consultar datos para ${ubicacion}.`);
       }
 
-      const resultsWithUbicacion = data.response.map(item => ({ ...item, ubicacion: ubicacion }));
-      allResults.push(...resultsWithUbicacion);
+      // Agrupar resultados por ubicación
+      if (data.response && data.response.length > 0) {
+        resultsByUbicacion[ubicacion] = data.response;
+      }
     }
 
-    $monitoreoData.set(allResults);
-    console.log('[handleQuerySubmit] Datos obtenidos:', allResults);
-    if (allResults.length > 0) {
+    $monitoreoData.set(resultsByUbicacion);
+
+    if (Object.keys(resultsByUbicacion).length > 0) {
       notify('Consulta realizada con éxito.', 'success');
     } else {
       notify('No se encontraron datos para los criterios seleccionados.', 'info');

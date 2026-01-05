@@ -9,7 +9,7 @@ const params = [
   { cod: 'ph', desc: 'pH', isChecked: false },
   { cod: 'tem', desc: 'Temperatura', isChecked: false },
   { cod: 'tsd', desc: 'Total de solidos disueltos', isChecked: false },
-  { cod: 'tur', desc: 'Turbidez', isChecked: false },
+  { cod: 'tur', desc: 'Turbidéz', isChecked: false },
 ];
 
 /** Estado global de los parámetros seleccionados */
