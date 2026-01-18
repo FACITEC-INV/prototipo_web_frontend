@@ -1,7 +1,14 @@
 import { atom } from "nanostores";
 
 export const $chartsOptions = atom({
-  chart: { type: 'line', height: 300, zoom: { enabled: true } },
+  chart: {
+    type: 'line',
+    height: 300,
+    zoom: {
+      enabled: true,
+      allowMouseWheelZoom: false
+    },
+  },
   stroke: { curve: 'smooth', show: true, width: 2 },
   xaxis: { type: 'category' },
   yaxis: { title: { text: 'Valores medidos' } },

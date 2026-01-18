@@ -134,16 +134,10 @@ export const $qualityRanges = atom(
     ],
     tur: [
       {
-        label: "Malo (Muy Turbio)",
-        from: 101.0,
-        to: 1000.0,
-        color: "#FF6347"
-      },
-      {
-        label: "Pobre (Turbio)",
-        from: 26.0,
-        to: 100.0,
-        color: "#FFD700"
+        label: "Excelente (Cristalino)",
+        from: 0.0,
+        to: 5.0,
+        color: "#4169E1"
       },
       {
         label: "Bueno (Claro)",
@@ -152,11 +146,17 @@ export const $qualityRanges = atom(
         color: "#00FF7F"
       },
       {
-        label: "Excelente (Cristalino)",
-        from: 0.0,
-        to: 5.0,
-        color: "#4169E1"
-      }
+        label: "Pobre (Turbio)",
+        from: 26.0,
+        to: 100.0,
+        color: "#FFD700"
+      },
+      {
+        label: "Malo (Muy Turbio)",
+        from: 101.0,
+        to: 1000.0,
+        color: "#FF6347"
+      },
     ]
   }
 )
