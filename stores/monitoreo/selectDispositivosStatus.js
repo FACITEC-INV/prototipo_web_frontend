@@ -2,6 +2,12 @@ import { atom, effect } from "nanostores";
 
 
 /**
+ * Lista de todos dispositivos disponibles.
+ * @example [{rio: string, ubicacion: string, intervalo_actualizacion: number, ultimaConexion: Date}]
+ */
+export const $allDispositivos = atom([]);
+
+/**
  * Lista de dispositivos para cargar en el selector de dispositivos.
  * @example [{rio: string, ubicacion: string, intervalo_actualizacion: number, ultimaConexion: Date}]
  */

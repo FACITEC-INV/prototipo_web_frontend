@@ -34,7 +34,7 @@ const SelectRios = () => {
         >
           <option value="0">Seleccione un río</option>
           {dispositivos.map((d, i) => (
-            <option key={'rios-option-' + i} value={`${d.ubicacion}`.replaceAll(' ', '')}>{d.rio}</option>
+            <option key={'opcion-'+d.ubicacion.replaceAll(' ', '')} value={`${d.ubicacion}`}>{d.rio}</option>
           ))}
         </select>
         <button
@@ -52,7 +52,7 @@ const SelectRios = () => {
           {selectedRiosList.map((r, i) => (
             <button
               type="button"
-              key={'rio-selected-' + i}
+              key={'rio-selected-' + r.ubicacion.replaceAll(' ', '')}
               className="btn btn-xs btn-soft btn-info mr-1"
               onClick={() => handleRomoveRiosFromSelectedList(r.ubicacion)}
             >

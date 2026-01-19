@@ -1,6 +1,6 @@
 import { task } from "nanostores";
 import { notify } from "../notification/notify";
-import { $dispositivosStatus, $rioSelected, $selectedRiosList } from "./selectDispositivosStatus";
+import { $allDispositivos, $dispositivosStatus, $rioSelected, $selectedRiosList } from "./selectDispositivosStatus";
 
 const URLBASE = `${process.env.NEXT_PUBLIC_API_BASE}/dispositivos`;
 
@@ -35,6 +35,7 @@ export const fetchAllDispositivos = async () => {
  */
 const loadComponentData = data => {
   if (!data) return;
+  $allDispositivos.set([...data]);
   const first = data.shift();
   $dispositivosStatus.set([...data]);
   $selectedRiosList.set([first]);
@@ -59,14 +60,21 @@ export const handleRiosSelectChange = async ev => {
  * @param {string} rio - Río seleccionado.
  */
 export const handleAddRiosToSelectedList = () => {
-  if ($rioSelected.get() === '' || $rioSelected === undefined) {
+  const rioSeleccionado = $rioSelected.get();
+  if (rioSeleccionado === '' || rioSeleccionado === undefined) {
     notify('Seleccione un río', 'info', 2000)
     return;
   }
-  $selectedRiosList.set([...$selectedRiosList.get(), $dispositivosStatus.get().find(d => d.ubicacion === $rioSelected.get())]);
-  $dispositivosStatus.set(
-    $dispositivosStatus.get().filter(d => d.ubicacion !== $rioSelected.get())
-  );
+  const dispositivoToAdd = $dispositivosStatus.get().find(d => d.ubicacion === rioSeleccionado);
+  if (dispositivoToAdd) {
+    $selectedRiosList.set([...$selectedRiosList.get(), dispositivoToAdd]);
+    $dispositivosStatus.set(
+      $dispositivosStatus.get().filter(d => d.ubicacion !== rioSeleccionado)
+    );
+  } else {
+    notify('Error al seleccionar el río. No se encuentra el dispositivo', 'error', 2000);
+    return;
+  }
   document.querySelector('select#select-rios').value = '0';
   $rioSelected.set('');
 };
