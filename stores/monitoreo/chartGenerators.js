@@ -10,18 +10,19 @@ const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', '
  * @example ```return [{ "name": "Curuguaty'y", "data": [ { "x": "Nov-01", "y": 1362.02 }, { "x": "Nov-02", "y": 1433.9 },... ] } ] ```
  */
 export function seriesGen(param, devicesData, data) {
-  const locations = Object.keys(data);
   const series = [];
-  locations.forEach((l, i) => {
-    series.push({
-      name: devicesData.find(d => d.ubicacion === locations[i]).rio,
-      data: data[l].map(d => {
-        return {
-          x: yValueGen(d),
-          y: parseFloat(d[param.cod].toFixed(2)),
-        }
-      }),
-    });
+  devicesData.forEach(device => {
+    if (data && data[device.ubicacion]) {
+      series.push({
+        name: device.rio,
+        data: data[device.ubicacion].map(d => {
+          return {
+            x: yValueGen(d),
+            y: parseFloat(d[param.cod].toFixed(2)),
+          }
+        }),
+      });
+    }
   });
   return series;
 }

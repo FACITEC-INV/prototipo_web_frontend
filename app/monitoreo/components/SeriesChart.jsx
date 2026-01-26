@@ -1,5 +1,5 @@
 'use client';
-import { $chartsData} from '@/stores/monitoreo/chartsDataStatus';
+import { $chartsData } from '@/stores/monitoreo/chartsDataStatus';
 import { useStore } from '@nanostores/react';
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
@@ -8,14 +8,14 @@ const SeriesChart = ({ className }) => {
   const chartsData = useStore($chartsData)
   return (
     <div className={`${className}`}>
-      { chartsData.length > 0 ? (
+      {chartsData.length > 0 ? (
         <div className='flex flex-wrap justify-center'>{
           chartsData.map((chartConfig, i) => {
             const { series, ...options } = chartConfig;
             return (
               <div
                 key={chartConfig.id}
-                className='bg-white p-1 rounded-lg shadow-md m-[3px] w-full lg:w-[49%] flex-shrink-0 flex-grow-0'
+                className='bg-neutral-200 p-1 rounded-lg shadow-md m-[3px] w-full lg:w-[49%] flex-shrink-0 flex-grow-0'
               >
                 <Chart
                   options={options}

@@ -16,28 +16,32 @@ L.Icon.Default.mergeOptions({
 const DevicesMap = () => {
   const devicesState = useStore($allDispositivos);
   return (
-    <div className="h-[400px] w-full rounded-lg shadow-md p-2">
-      <h5>Mapa de ubicación de los dispositivos de monitoreo</h5>
-        <MapContainer
-          className="h-[94%] rounded-lg"
-          center={[-24.181926454190975, -54.6980453951156]}
-          zoom={8}
-          scrollWheelZoom={false}>
-          <TileLayer
-            attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors`}
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {
-            devicesState.map(d => (
-              <Marker key={`mark-${d.ubicacion.replaceAll(' ', '')}`} position={d.ubicacion.replaceAll(',', '').split(' ')}>
-                <Popup>
-                  {d.rio}
-                </Popup>
-              </Marker>
+    <div className="card bg-neutral-200 shadow-sm">
+      <div className="card-body h-[400px] rounded-lg shadow-md p-2">
+        <h2 className="card-title">Mapa de ubicación de los dispositivos de monitoreo</h2>
+        <div className='w-full h-full'>
+          <MapContainer
+            className="h-full rounded-lg"
+            center={[-24.181926454190975, -54.6980453951156]}
+            zoom={8}
+            scrollWheelZoom={false}>
+            <TileLayer
+              attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors`}
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {
+              devicesState.map(d => (
+                <Marker key={`mark-${d.ubicacion.replaceAll(' ', '')}`} position={d.ubicacion.replaceAll(',', '').split(' ')}>
+                  <Popup>
+                    {d.rio}
+                  </Popup>
+                </Marker>
 
-            ))
-          }
-        </MapContainer>
+              ))
+            }
+          </MapContainer>
+        </div>
+      </div>
     </div>
   )
 }
