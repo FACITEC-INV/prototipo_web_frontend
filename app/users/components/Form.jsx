@@ -13,7 +13,7 @@ const Form = () => {
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isNew || id.length > 0) {
+    if (!isNew || (id && id.length > 0)) {
       setAnimated(true);
       const timer = setTimeout(() => {
         setAnimated(false);
@@ -31,7 +31,7 @@ const Form = () => {
 
           <input
             type="hidden"
-            value={id}
+            value={id ?? ''}
             className="input input-bordered w-full"
           />
           <div className="mb-3">
@@ -41,7 +41,7 @@ const Form = () => {
                 type="text"
                 placeholder="Ingrese nombre completo"
                 className="input input-sm"
-                value={fullName}
+                value={fullName ?? ''}
                 onInput={(e) => { handleFieldChange('fullName', e.target.value) }}
                 disabled={isLoading}
                 required
@@ -56,7 +56,7 @@ const Form = () => {
                 type="text"
                 placeholder="Ingrese el nombre de usuario"
                 className="input input-sm"
-                value={username}
+                value={username ?? ''}
                 onInput={(e) => { handleFieldChange('username', e.target.value) }}
                 disabled={isLoading}
                 required
@@ -71,7 +71,7 @@ const Form = () => {
                 type="password"
                 placeholder="Ingrese la contraseña"
                 className="input input-sm"
-                value={password}
+                value={password ?? ''}
                 onInput={(e) => { handleFieldChange('password', e.target.value) }}
                 disabled={isLoading}
                 required
@@ -84,7 +84,7 @@ const Form = () => {
               <span>Intérvalo de atualización</span>
               <select
                 className="select select-sm"
-                value={role}
+                value={role ?? '0'}
                 onChange={(e) => { handleFieldChange('role', e.target.value) }}
                 disabled={isLoading}
                 required

@@ -1,13 +1,15 @@
 # base stage
 FROM node:22-alpine AS base
+RUN corepack enable && corepack prepare pnpm@10.27.0 --activate
+WORKDIR /app
 # /base stage
 
 # deps stage
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json ./
-RUN npm update && npm install
+COPY package.json pnpm-lock.yaml* ./
+RUN pnpm install --frozen-lockfile
 # /deps stage
 
 # builder stage
@@ -23,7 +25,7 @@ ARG NEXT_PUBLIC_LOGIN_ENDPOINT
 ENV NEXT_PUBLIC_API_BASE=$NEXT_PUBLIC_API_BASE
 ENV NEXT_PUBLIC_API_DOCS_URL=$NEXT_PUBLIC_API_DOCS_URL
 ENV NEXT_PUBLIC_LOGIN_ENDPOINT=$NEXT_PUBLIC_LOGIN_ENDPOINT
-RUN npm run build
+RUN pnpm run build
 # /builder stage
 
 # runner stage

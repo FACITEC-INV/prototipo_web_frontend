@@ -29,12 +29,12 @@ export const handleSubmit = async (ev) => {
       },
       body: JSON.stringify($fieldsStatus.get()),
     })
+    const { success, response } = await result.json();
     if (!result.ok) {
-      console.error('[users-form-action] Error al enviar el formulario:', result.statusText);
+      console.error('[users-form-action] Error al enviar el formulario:', response);
       notify('Error al enviar el formulario', 'error');
       return;
     }
-    const { success, response } = await result.json();
     if (!success) {
       console.error('[users-form-action] Error en la respuesta del servidor:', response);
       notify('Error en el servidor', 'error');

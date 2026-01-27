@@ -13,7 +13,7 @@ const Form = () => {
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isNew || id.length > 0) {
+    if (!isNew || (id && id.length > 0)) {
       setAnimated(true);
       const timer = setTimeout(() => {
         setAnimated(false);
@@ -31,7 +31,7 @@ const Form = () => {
 
           <input
             type="hidden"
-            value={id}
+            value={id ?? ''}
             className="input input-bordered w-full"
           />
           <div className="mb-3">
@@ -41,7 +41,7 @@ const Form = () => {
                 type="text"
                 placeholder="Ingrese el río"
                 className="input input-sm"
-                value={rio}
+                value={rio ?? ''}
                 onInput={(e) => { handleFieldChange('rio', e.target.value) }}
                 disabled={isLoading}
                 required
@@ -56,7 +56,7 @@ const Form = () => {
                 type="text"
                 placeholder="Ingrese la ubicación"
                 className="input input-sm"
-                value={ubicacion}
+                value={ubicacion ?? ''}
                 onInput={(e) => { handleFieldChange('ubicacion', e.target.value) }}
                 disabled={isLoading}
                 required
@@ -69,7 +69,7 @@ const Form = () => {
               <span>Intérvalo de atualización</span>
               <select
                 className="select select-sm"
-                value={intervaloActualizacion}
+                value={intervaloActualizacion ?? ''}
                 onChange={(e) => { handleFieldChange('intervaloActualizacion', e.target.value) }}
                 disabled={isLoading}
                 required
