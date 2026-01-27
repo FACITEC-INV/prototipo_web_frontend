@@ -4,7 +4,7 @@ import { atom, map, } from "nanostores";
 const date = new Date();
 
 /** Año actual */
-export const $currentYearStatus = atom(date.getFullYear()-1);
+export const $currentYearStatus = atom(date.getFullYear());
 /** Mes actual */
 export const $currentMonthStatus = atom(date.getMonth() + 1);
 /** Día actual */
