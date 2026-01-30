@@ -1,6 +1,11 @@
 import { $authToken } from "../auth/token";
 import { notify } from "../notification/notify";
-import { $errorsStatus, $fieldsStatus, $isLoading, $isNew, resetFormStatus } from "./formStatus";
+import {
+  $changePassword, $errorsStatus,
+  $fieldsStatus, $isLoading,
+  $isNew, $PASSWORD_PLACEHOLDER,
+  resetFormStatus
+} from "./formStatus";
 import { validateForm } from "./formValidator";
 import { $reloadTableData } from "./tableStatus";
 
@@ -20,7 +25,13 @@ export const handleSubmit = async (ev) => {
       notify('Por favor, corrija los errores en el formulario', 'warning');
       return;
     }
-    if ($isNew.get() === true) delete $fieldsStatus.get().id;
+    if ($isNew.get() === true) {
+      delete $fieldsStatus.get().id;
+    } else {
+      if ($fieldsStatus.get().password === $PASSWORD_PLACEHOLDER) {
+        $fieldsStatus.setKey('password', '');
+      }
+    }
     const result = await fetch(URLBASE + '/save', {
       method: 'POST',
       headers: {
@@ -59,4 +70,15 @@ export const handleSubmit = async (ev) => {
  */
 export function handleFieldChange(field, value) {
   $fieldsStatus.setKey(field, value);
+}
+
+export function handleChangePassword(ev) {
+  ev.preventDefault();
+  const passwordIsEditing = !$changePassword.get();
+  if (passwordIsEditing) {
+    $fieldsStatus.setKey('password', '');
+  } else {
+    $fieldsStatus.setKey('password', $PASSWORD_PLACEHOLDER);
+  }
+  $changePassword.set(passwordIsEditing);
 }

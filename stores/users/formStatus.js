@@ -7,6 +7,8 @@ export const $fieldsStatus = map({ ...emptyFields });
 export const $errorsStatus = map({ ...emptyErrors });
 export const $isNew = atom(true)
 export const $isLoading = atom(false)
+export const $changePassword = atom(false);
+export const $PASSWORD_PLACEHOLDER = '**********';
 
 /**
  * Carga el estado del formulario por medio de un objeto.
@@ -18,7 +20,7 @@ export function loadFormStatus(values, esnuevo = true) {
     id: values.id ?? '',
     fullName: values.fullName ?? '',
     username: values.username ?? '',
-    password: values.password ?? '',
+    password: esnuevo ? values.password ?? '' : $PASSWORD_PLACEHOLDER,
     role: values.role ?? '0'
   })
   $isNew.set(esnuevo)
@@ -31,4 +33,5 @@ export const resetFormStatus = () => {
   $fieldsStatus.set({ ...emptyFields })
   $errorsStatus.set({ ...emptyErrors })
   $isNew.set(true)
+  $changePassword.set(false);
 };

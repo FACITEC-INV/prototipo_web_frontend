@@ -49,12 +49,12 @@ export const handleEdit = async id => {
         'Authorization': `Bearer ${$authToken.get()}`,
       }
     });
+    const { success, response } = await res.json();
     if (!res.ok) {
       notify('Error al intentar obtener los datos', 'error');
-      console.error('[users-table-action] Error al obtener los datos:', res);
+      console.error('[users-table-action] Error al obtener los datos:', response);
       return;
     }
-    const { success, response } = await res.json();
     if (!success) {
       notify('Error en el servidor', 'error');
       console.error('[users-table-action] Error en el servidor:', response);

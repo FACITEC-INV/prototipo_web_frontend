@@ -1,7 +1,12 @@
 "use client";
 
-import { handleFieldChange, handleSubmit } from "@/stores/users/formActions";
-import { $errorsStatus, $fieldsStatus, $isLoading, $isNew, resetFormStatus } from "@/stores/users/formStatus";
+import { handleChangePassword, handleFieldChange, handleSubmit } from "@/stores/users/formActions";
+import {
+  $changePassword,
+  $errorsStatus, $fieldsStatus,
+  $isLoading, $isNew,
+  resetFormStatus
+} from "@/stores/users/formStatus";
 import { useStore } from "@nanostores/react";
 import { useEffect, useState } from "react";
 
@@ -11,6 +16,7 @@ const Form = () => {
   const errors = useStore($errorsStatus);
   const isNew = useStore($isNew);
   const [animated, setAnimated] = useState(false);
+  const changePass = useStore($changePassword);
 
   useEffect(() => {
     if (!isNew || (id && id.length > 0)) {
@@ -70,12 +76,20 @@ const Form = () => {
               <input
                 type="password"
                 placeholder="Ingrese la contraseña"
-                className="input input-sm"
+                className={`input input-sm ${!isNew ? 'w-65 inline mr-1' : ''}`}
                 value={password ?? ''}
-                onInput={(e) => { handleFieldChange('password', e.target.value) }}
-                disabled={isLoading}
-                required
+                onInput={(e) => { handleFieldChange('password', e.target.value.trim()) }}
+                disabled={isLoading || (!changePass && !isNew)}
+                required={isNew || changePass}
               />
+              {!isNew && (
+                <button
+                  className="btn btn-soft btn-warning btn-xs w-9 tooltip" data-tip={changePass ? 'No cambiar la contraseña' : 'Cambiar la contraseña'}
+                  onClick={e => { handleChangePassword(e) }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                </button>
+              )}
             </div>
             {errors.password && <span className="text-xs text-error mt-1">{errors.password}</span>}
           </div>
