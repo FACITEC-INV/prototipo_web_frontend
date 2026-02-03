@@ -19,3 +19,9 @@ La aplicación tiene dos vertientes principales:
 -   **Visualización de Datos:** [ApexCharts](https://apexcharts.com/) con el wrapper de `react-apexcharts`.
 -   **Mapas:** [Leaflet](https://leafletjs.com/) con el wrapper de `react-leaflet`.
 -   **Backend:** La aplicación se comunica con una API REST externa.
+
+## Licencia
+
+Este proyecto está licenciado bajo los términos de la Licencia Pública General de GNU v3.0. Consulta [LICENSE.md](LICENSE.md) para más detalles.
+
+
