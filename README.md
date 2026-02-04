@@ -20,6 +20,14 @@ La aplicación tiene dos vertientes principales:
 -   **Mapas:** [Leaflet](https://leafletjs.com/) con el wrapper de `react-leaflet`.
 -   **Backend:** La aplicación se comunica con una API REST externa.
 
+## Autores y Contacto
+
+- **Investigador Principal:** Daniel Romero
+- **Director del proyecto:** Rodrigo Martínez
+- **Equipo de Desarrollo:** David Ruiz Diaz, Nazario Ayala, Angel Heimann, Gloria Ortiz.
+- **Contacto:** dir.invext@facitec.edu.py
+
+
 ## Licencia
 
 Este proyecto está licenciado bajo los términos de la Licencia Pública General de GNU v3.0. Consulta [LICENSE.md](LICENSE.md) para más detalles.
