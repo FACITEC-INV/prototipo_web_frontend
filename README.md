@@ -1,4 +1,4 @@
-![banner](https://uccc8e4b245aaeff0f682bc9b0ff.previews.dropboxusercontent.com/p/thumb/AC4YQ87P-3mtvTgCWc0YrAdmKdjLSL4wqXUo9flTrku5SHqGuSxZIYryELd3KRCu3dhqUSnYKupdY1ncid_rqH9faIQatwT7gqsempNWH6KdKfn_3BtW1tEIXrrPSjXyCEOVYmtMJwdClP5u0jBCrPqZDpXXb3sDl_8rVEvIDED-beQAJ8Wj6KMkR3WzaNJFjsaohCk4NfK6VCBQghrmfYDD7kdL4-SHtjaZgQBRSBNYgNeexbkFJPFXygw9N8KRnF4GsgHTdopuARIKJSWi0G9ES3BCg8H1TwRkTSifynprOumgFoJYCLQmbRmfLrNCOPGDQSZqXyU8aITF79NNbB3dE0B8JKrOkoquHTeeferOaGN6H86s0EO5s_9CbYelrvI/p.png?is_prewarmed=true)
+![banner](https://tinyurl.com/2bjefly2)
 
 # Prototipo Web Frontend para Monitoreo de Calidad del Agua
 
