@@ -1,4 +1,4 @@
-![banner](https://tinyurl.com/2bjefly2)
+![banner](https://drive.usercontent.google.com/download?id=1hFPIja3MBeFldDc1G6xueYSvr-Ts9fp-)
 
 # Prototipo Web Frontend para Monitoreo de Calidad del Agua
 
