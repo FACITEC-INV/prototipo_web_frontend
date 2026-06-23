@@ -1,4 +1,3 @@
-import { task } from "nanostores";
 import { notify } from "../notification/notify";
 import { $allDispositivos, $dispositivosStatus, $rioSelected, $selectedRiosList } from "./selectDispositivosStatus";
 
@@ -62,7 +61,7 @@ export const handleRiosSelectChange = async ev => {
 export const handleAddRiosToSelectedList = () => {
   const rioSeleccionado = $rioSelected.get();
   if (rioSeleccionado === '' || rioSeleccionado === undefined) {
-    notify('Seleccione un río', 'info', 2000)
+    notify('Seleccione un río', 'info', 2000);
     return;
   }
   const dispositivoToAdd = $dispositivosStatus.get().find(d => d.ubicacion === rioSeleccionado);

@@ -1,6 +1,6 @@
 import { $authToken } from "../auth/token";
 import { notify } from "../notification/notify";
-import { $fieldsStatus, $isNew, loadFormStatus, resetFormStatus } from "./formStatus";
+import { loadFormStatus, resetFormStatus } from "./formStatus";
 import { $tableData, $reloadTableData, $searchTerm } from "./tableStatus";
 
 const URLBASE = process.env.NEXT_PUBLIC_API_BASE + '/admin/dispositivos';
@@ -76,7 +76,7 @@ export const handleDelete = async id => {
   try {
     const disp = $tableData.get().find(d => d.id === id);
     if (!disp) {
-      console.error('[table-action] Error al eliminar los datos:', res);
+      console.error('[table-action] No se encotró el dipostivo a eliminar',);
       return;
     }
     const conf = confirm(`¿Está seguro de eliminar el dispositivo ${disp.rio} (${disp.ubicacion})?`);

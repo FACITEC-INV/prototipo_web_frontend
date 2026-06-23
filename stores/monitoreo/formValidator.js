@@ -11,7 +11,7 @@ export const yearIsValid = year => {
   }
   if (!Number.isInteger(year)) {
     $errorsDateInputStatus.setKey('year', 'Año=número');
-    return false
+    return false;
   };
   if (year < 2024) {
     $errorsDateInputStatus.setKey('year', 'Año>=2024');
@@ -49,7 +49,7 @@ export const monthIsValid = month => {
 export const dayIsValid = day => {
   if (!Number.isInteger(day) && day !== '') {
     $errorsDateInputStatus.setKey('day', 'Día=número');
-    return false
+    return false;
   };
   if (day < 0) {
     $errorsDateInputStatus.setKey('day', 'Día>=0');

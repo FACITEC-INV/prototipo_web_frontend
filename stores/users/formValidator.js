@@ -1,4 +1,4 @@
-import { hasMaxLength, hasMinLength, isNumberInRange, isRequired, isValidNumber } from "../utils/basicValidations";
+import { hasMaxLength, hasMinLength, isRequired, isValidNumber } from "../utils/basicValidations";
 import { $errorsStatus, $fieldsStatus } from "./formStatus";
 
 /**

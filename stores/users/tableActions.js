@@ -1,6 +1,6 @@
 import { $authToken } from "../auth/token";
 import { notify } from "../notification/notify";
-import { $fieldsStatus, $isNew, loadFormStatus, resetFormStatus } from "./formStatus";
+import { loadFormStatus, resetFormStatus } from "./formStatus";
 import { $tableData, $reloadTableData, $searchTerm } from "./tableStatus";
 
 const URLBASE = process.env.NEXT_PUBLIC_API_BASE + '/admin/users';

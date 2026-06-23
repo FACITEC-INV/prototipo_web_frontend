@@ -22,7 +22,7 @@ export const handleSubmit = async (ev) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', },
       body: JSON.stringify($fieldsStatus.get()),
-    })
+    });
     const { success, response } = await result.json();
     if (!result.ok) {
       if (response.includes('already exists')) {

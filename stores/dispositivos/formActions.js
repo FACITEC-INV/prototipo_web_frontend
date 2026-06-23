@@ -28,7 +28,7 @@ export const handleSubmit = async (ev) => {
         'Authorization': `Bearer ${$authToken.get()}`,
       },
       body: JSON.stringify($fieldsStatus.get()),
-    })
+    });
     const { success, response } = await result.json();
     if (!result.ok) {
       console.error('[disp-form-action] Error al enviar el formulario:', response);
