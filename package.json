@@ -1,6 +1,6 @@
 {
   "name": "prototipo_web_frontend",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "packageManager": "pnpm@10.27.0",
   "scripts": {
@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nanostores/deepmap": "^1.0.0",
     "@nanostores/persistent": "^1.0.0",
     "@nanostores/react": "^1.0.0",
     "apexcharts": "^5.3.6",
@@ -17,10 +18,10 @@
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
     "nanostores": "^1.0.1",
-    "next": "16.1.1",
-    "react": "19.2.3",
+    "next": "16.2.12",
+    "react": "19.2.8",
     "react-apexcharts": "^1.8.0",
-    "react-dom": "19.2.3",
+    "react-dom": "19.2.8",
     "react-leaflet": "5.0.0"
   },
   "devDependencies": {

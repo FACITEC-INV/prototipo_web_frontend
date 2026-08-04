@@ -75,6 +75,9 @@ const Form = () => {
                 required
               >
                 <option disabled value="0">Selecciones un intervalo</option>
+                <option value="2">2 minutos</option>
+                <option value="5">5 minutos</option>
+                <option value="10">10 minutos</option>
                 <option value="15">15 minutos</option>
                 <option value="30">30 minutos</option>
                 <option value="60">60 minutos</option>

@@ -1,6 +1,7 @@
+import { deepMap } from "@nanostores/deepmap";
 import { $dispositivosStatus, $selectedRiosList } from "./selectDispositivosStatus";
 
-const { deepMap, effect, atom } = require("nanostores");
+const { effect, atom } = require("nanostores");
 
 /** Parámetros disponibles para monitoreo */
 const params = [

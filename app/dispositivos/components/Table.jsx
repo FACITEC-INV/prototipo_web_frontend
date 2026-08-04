@@ -36,6 +36,7 @@ const Table = () => {
             <thead>
               <tr>
                 <th>#</th>
+                <th>Cod.</th>
                 <th>Río</th>
                 <th>Ubicación</th>
                 <th>Intervalo</th>
@@ -48,6 +49,7 @@ const Table = () => {
                 data.map((i, index) => (
                   <tr key={i.id} className="hover:bg-base-300">
                     <td>{index + 1}</td>
+                    <td>{i.id}</td>
                     <td>{i.rio}</td>
                     <td>{i.ubicacion}</td>
                     <td>{i.intervaloActualizacion}</td>

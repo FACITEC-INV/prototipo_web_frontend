@@ -4,29 +4,23 @@ export const $qualityRanges = atom(
   {
     con: [
       {
-        label: "Malo (Muy Alto en Sales)",
-        from: 1201.0,
-        to: 10000.0,
-        color: "#FF6347"
+        label: "Conductividad baja (Bajo contenido de minerales)",
+        from: 0.0,
+        to: 100.0,
+        color: "#4169E1"
       },
       {
-        label: "Pobre (Alto/Mineralizado)",
-        from: 601.0,
-        to: 1200.0,
-        color: "#FFD700"
-      },
-      {
-        label: "Bueno (Normal)",
-        from: 201.0,
-        to: 600.0,
+        label: "Conductividad media (Mineralización media)",
+        from: 101.0,
+        to: 700.0,
         color: "#00FF7F"
       },
       {
-        label: "Excelente (Bajo en Minerales)",
-        from: 0.0,
-        to: 200.0,
-        color: "#4169E1"
-      }
+        label: "Conductividad Alta (Alto contenido de minerales)",
+        from: 701.0,
+        to: 1500.0,
+        color: "#FFD700"
+      },
     ],
     od: [
       {
@@ -56,28 +50,22 @@ export const $qualityRanges = atom(
     ],
     ph: [
       {
-        label: "Malo (Extremo)",
+        label: "Bajo (Ácido)",
         from: 0.0,
-        to: 5.5,
-        color: "#FF6347"
+        to: 6.0,
+        color: "#FF4D00"
       },
       {
-        label: "Pobre (Marginal)",
-        from: 5.6,
-        to: 6.4,
-        color: "#FFD700"
-      },
-      {
-        label: "Bueno (Saludable)",
-        from: 6.5,
-        to: 8.5,
+        label: "Normal (Saludable)",
+        from: 6.1,
+        to: 9.0,
         color: "#00FF7F"
       },
       {
-        label: "Malo (Extremo)",
-        from: 8.6,
-        to: 14.0,
-        color: "#FF6347"
+        label: "Alto (Alcalino)",
+        from: 9.1,
+        to: 15.0,
+        color: "#FF4D00"
       }
     ],
     tem: [
@@ -108,54 +96,42 @@ export const $qualityRanges = atom(
     ],
     tsd: [
       {
-        label: "Malo (Alto en Sales)",
+        label: "Alto",
         from: 1001.0,
-        to: 5000.0,
+        to: 1200.0,
         color: "#FF6347"
       },
       {
-        label: "Pobre (Mineralizado)",
-        from: 501.0,
+        label: "Medio",
+        from: 201.0,
         to: 1000.0,
-        color: "#FFD700"
+        color: "#4169E1"
       },
       {
-        label: "Bueno (Normal)",
-        from: 151.0,
-        to: 500.0,
+        label: "Bajo",
+        from: 0.0,
+        to: 200.0,
         color: "#00FF7F"
       },
-      {
-        label: "Excelente (Puro)",
-        from: 0.0,
-        to: 150.0,
-        color: "#4169E1"
-      }
     ],
     tur: [
       {
-        label: "Excelente (Cristalino)",
+        label: "Baja (Buena penetración de luz)",
         from: 0.0,
-        to: 5.0,
-        color: "#4169E1"
-      },
-      {
-        label: "Bueno (Claro)",
-        from: 5.1,
-        to: 25.9,
+        to: 20.0,
         color: "#00FF7F"
       },
       {
-        label: "Pobre (Turbio)",
-        from: 26.0,
-        to: 100.0,
-        color: "#FFD700"
+        label: "Media (Penetración de luz moderada)",
+        from: 20.1,
+        to: 150.0,
+        color: "#9ACD32"
       },
       {
-        label: "Malo (Muy Turbio)",
-        from: 101.0,
-        to: 1000.0,
-        color: "#FF6347"
+        label: "Alta (Sin penetración de luz)",
+        from: 151.0,
+        to: 300.0,
+        color: "#FF4D00"
       },
     ]
   }
